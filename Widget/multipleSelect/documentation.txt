@@ -1,0 +1,156 @@
+﻿一、Constructor
+    1.isOpen:
+        1).Type: boolean
+        2).Description:Whether or not Multiple Select open the select dropdown.By default this option is set to false.
+    2.placeholder:
+        1).Type: string
+        2).Description:A placeholder value can be defined and will be displayed until you select a item.By default this option is set to ''.
+        3).修改：请选择
+    3.selectAll:
+        1).Type: boolean
+        2).Description:Whether or not Multiple Select show select all checkbox.By default this option is set to true.
+    4.selectAllText:
+        1).Type: string
+        2).Description:Multiple Select select all checkbox text.By default this option is set to Select all.
+        3).修改："<span style='font-weight:bold;'>全选</span>"
+    5.selectAllDelimiter:
+        1).Type: Array
+        2).Description:Multiple Select select all checkbox delimiter.By default this option is set to ['[',']'].
+        3).修改：['','']
+    6.allSelected:
+        1).Type: false or string
+        2).Description:The text displays when the select all selected.By default this option is set to All selected.
+        3).修改：全部选中
+    7.minimumCountSelected:
+        1).Type: int
+        2).Description:countSelected will be shown only if more than X items where selected.By default this option is set to 3.
+    8.countSelected:
+        1).Type: false or string
+        2).Description:‘#’ is replaced with the count of selected items, ‘%’ is replaces with total items.By default this option is set to # of % selected.
+        3).修改：'#/% 被选中'
+    9.ellipsis:
+        1).Type: boolean
+        2).Description:Add “…” after selected options if minimumCountSelected is set. Overrides countSelected option.By default this option is set to false.
+    10.multiple:
+        1).Type: boolean
+        2).Description:Whether or not Multiple Select show multiple items in a row.By default this option is set to false.
+        3).修改：true
+    11.multipleWidth:
+        1).Type: integer
+        2).Description:Multiple Select show multiple items width.By default this option is set to 80.
+        3).修改：144
+    12.single:
+        1).Type: boolean
+        2).Description:Whether or not Multiple Select allows you to select only one option.By default this option is set to false.
+    13.position:
+        1).Type: string
+        2).Description:Defines the position of select dropdown, can only be bottom or top.By default this option is set to bottom.
+    14.filter:
+        1).Type: boolean
+        2).Description:Whether or not Multiple Select show a search field to search through checkbox items.By default this option is set to false.
+        3).修改：true
+    15.width:
+        1).Type: integer/string
+        2).Description:Define the width property of the dropdown list, support a percentage setting.By default this option is set to undefined. Which is the same as the select input field.
+        3).修改：460px
+    16.maxHeight:
+        1).Type: integer
+        2).Description:Define the maximum height property of the dropdown list.By default this option is set to 250.
+    17.keepOpen:
+        1).Type: boolean
+        2).Description:Keep the select dropdown always open.By default this option is set to false.
+    18.styler:
+        1).Type: function
+        2).Description:The item styler function, return style string to custom the item style such as background: red. The function take one parameter: value.
+        3).修改：function(value) {//value表示option的值
+                       return 'color: #333;';
+                   }
+    19.noMatchesFound:
+        1).类型: String
+        2).描述: 搜索时若无匹配项，则显示此字符串，默认值'No matches found'（官方文档没给出此配置项）
+        3).修改：无匹配项
+    20.data:
+        1).类型: Array
+        2).描述: 多选框数据（自定义）
+        3).举例: data = [
+                    {id:'1',text:'option1'},
+                    {id:'2',text:'option2'}
+                 ];
+                 或者
+                 data = [
+                    {
+                        text:'optGroup1',
+                        suboption:[
+                            {id:'1',text:'option1_1'},
+                            {id:'2',text:'option1_2'}
+                        ]
+                    },
+                    {
+                        text:'optGroup2',
+                        suboption:[
+                            {id:'3',text:'option2_1'},
+                            {id:'4',text:'option2_2'}
+                        ]
+                    }
+                 ];
+二、Events
+    1.onOpen:
+        Fires when the dropdown list is open.
+    2.onClose:
+        Fires when the dropdown list is close.
+    3.onCheckAll:
+        Fires when all the options are checked by either clicking the “Select all” checkbox, or when the “checkall” method is programatically called.
+    4.onUncheckAll:
+
+    5.onFocus:
+        Bind an event handler to the “focus”.
+    6.onBlur:
+        Bind an event handler to the “blur”
+    7.onOptgroupClick:
+        Fires when a an optgroup label is clicked on.
+        eg. onOptgroupClick: function(view) {
+                /*
+                view.label: the text of the optgroup
+                view.checked: the checked of the optgroup
+                view.children: an array of the checkboxes (DOM elements) inside the optgroup
+                */
+            }
+    8.onClick:
+        Fires when a checkbox is checked or unchecked.
+        eg. onClick: function(view) {
+                /*
+                view.label: the text of the checkbox item
+                view.checked: the checked of the checkbox item
+                */
+            }
+    9.onChange:
+        绑定“选择数据”变化事件（自定义）
+
+三、Methods
+    1.getSelects:
+        Gets the selected values.Parameter: typeType: stringThe type of selected items. value or textThe default is value.
+        eg. $('select').multipleSelect('getSelects');$('select').multipleSelect('getSelects','text')
+    2.setSelects:
+        Sets the selected values.Parameter: valuesType: arrayThe values of selected items.
+        eg. $('select').multipleSelect('setSelects', [1, 3]);
+    3.enable:
+        Enables Select.
+        eg. $('select').multipleSelect('enable');
+    4.disable:
+        Disables Select. During this mode the user is not allowed to manipulate the selection.
+        eg. $('select').multipleSelect('disable');
+    5.checkAll:
+        Check all checkboxes.
+        eg. $('select').multipleSelect('checkAll');
+    6.uncheckAll:
+        Uncheck all checkboxes.
+        eg. $('select').multipleSelect('uncheckAll');
+    7.focus:
+        Focus the multiple select.
+        eg. $('select').multipleSelect('focus');
+    8.blur:
+        Blur the multiple select.
+        eg. $('select').multipleSelect('blur');
+    9.refresh:
+        Reloads the Multiple Select. If you’re dynamically adding/removing option tags on the original select via AJAX or DOM manipulation methods, call refresh to reflect the changes.
+        eg. $('select').multipleSelect('refresh');
