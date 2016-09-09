@@ -19,10 +19,10 @@
 2. **js文件：**`require('./mulselect.js'); `  
 
 ###2、Html如下：
-    `<select ms-widget="mulselect,$,$myOptions"
+    <select ms-widget="mulselect,$,$myOptions"
     	ms-duplex="selectData"
     	multiple="multiple">
-    </select>`
+    </select>
   1. **ms-widget：组件绑定**
     - mulselect为组件名（固定）
     - $设置id（可不设置）
@@ -33,7 +33,7 @@
     - 不设置值为**multiple**会出现一些问题（固定）  
 
 ###3、$myOptions配置：
-    `$myOptions:{ 
+    $myOptions:{ 
 		//Constructor
 	    isOpen: false,
 	    placeholder: '请选择',
@@ -101,7 +101,7 @@
 	    	return false;
 	    }
     
-    };`
+    };
 
 ##三、配置项
 
