@@ -16,12 +16,13 @@
 
 ###1、引用文件：
 1. **css文件：**`<link href="./multiple-select.css" rel="stylesheet"/>;`
-2. **js文件：**`require('./mulselect.js'); `
+2. **js文件：**`require('./mulselect.js'); `  
+
 ###2、Html如下：
-    <select ms-widget="mulselect,$,$myOptions"
+    `<select ms-widget="mulselect,$,$myOptions"
     	ms-duplex="selectData"
     	multiple="multiple">
-    </select>
+    </select>`
   1. **ms-widget：组件绑定**
     - mulselect为组件名（固定）
     - $设置id（可不设置）
@@ -29,9 +30,10 @@
   2. **ms-duplex：数据双工绑定**
     - selectData为绑定数据名（根据具体名称改变）
   3. **multiple：属性**
-    - 不设置值为**multiple**会出现一些问题（固定）
+    - 不设置值为**multiple**会出现一些问题（固定）  
+
 ###3、$myOptions配置：
-    $myOptions:{ 
+    `$myOptions:{ 
 		//Constructor
 	    isOpen: false,
 	    placeholder: '请选择',
@@ -99,7 +101,7 @@
 	    	return false;
 	    }
     
-    };
+    };`
 
 ##三、配置项
 
